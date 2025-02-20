@@ -1,0 +1,26 @@
+[
+  {
+    "img": "./images/product-img-5.jpg",
+    "brand": "WROGN",
+    "description": "Men Black Slim Fit Printed Cotton Pure Cotton T-shirt",
+    "price": 545
+  },
+  {
+    "img": "./images/product-img-4.jpg",
+    "brand": "RARE RABBIT",
+    "description": "Men Divide Polo Collar Slim Fit Cotton T-Shirt",
+    "price": 1609
+  },
+  {
+    "img": "./images/product-img-3.jpg",
+    "brand": "H&M",
+    "description": "HM Men Black Solid Cotton Pure Cotton T-shirt Regular Fit",
+    "price": 399
+  },
+  {
+    "img": "./images/product-img-1.jpg",
+    "brand": "Roadster",
+    "description": "Men Maroon Navy Blue Pure Cotton T-shirt",
+    "price": 335
+  }
+]
