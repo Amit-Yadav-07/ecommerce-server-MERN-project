@@ -61,8 +61,9 @@ const Login = async (req, res) => {
 
 }
 
-const dashboard = async (req, res) => {
-    console.log('hello admin');
+const admin = async (req, res) => {
+    // console.log('hello admin');
+    return res.send('hello admin')
 }
 
 const Logout = async (req, res) => {
@@ -85,4 +86,4 @@ const currentUser = async (req, res) => {
     res.status(StatusCodes.OK).json({ currentUser: userWithoutPassword })
 }
 
-module.exports = { Register, Login, dashboard, Logout, currentUser };
+module.exports = { Register, Login, admin, Logout, currentUser };
