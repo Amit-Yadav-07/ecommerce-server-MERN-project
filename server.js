@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
 require('dotenv').config()
-const morgan = require('morgan')
+const Razorpay = require('razorpay')
 const cors = require('cors')
+const urlencoded = require('express')
 const userRouter = require('./Routes/userRoute.js');
 const productRouter = require('./Routes/productRoute.js');
+const paymentRoute = require('./Routes/PaymentRoute.js')
 const path = require('path');
 const notFound = require('./Middleware/not-found.js')
 const errorHandler = require('./Middleware/error-handler.js')
@@ -17,18 +19,24 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET
 })
 
-
 // DB
 const connectDB = require('./DB/connection.js');
 
 app.use(cors())
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 // user route
 app.use('/api/v1/auth', userRouter)
 app.use('/api/v1/products', productRouter)
+app.use('/api/v1', paymentRoute)
+
+
+app.get('/api/v1/getkey', (req, res) => {
+    return res.status(200).json({ key: process.env.RAZORPAY_KEY_ID })
+})
 
 // custom middleware
 app.use(notFound);
@@ -50,3 +58,4 @@ const start = async () => {
 }
 
 start();
+
